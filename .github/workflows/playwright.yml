@@ -18,7 +18,7 @@ jobs:
 #    - name: Install Playwright Browsers
 #      run: npx playwright install --with-deps
     - name: Start containers with mongo db
-      run: docker-compose -f "docker-compose.yaml" up
+      run: docker-compose -f "docker-compose.yml" up -d
     - name: Run Playwright tests
       run: npx playwright test
     - uses: actions/upload-artifact@v4
@@ -29,4 +29,4 @@ jobs:
         retention-days: 30
     - name: Stop containers with mongo db
       if: always()
-      run: docker-compose -f "docker-compose.yaml" down
+      run: docker-compose -f "docker-compose.yml" down
